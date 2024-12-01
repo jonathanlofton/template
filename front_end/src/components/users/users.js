@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import usersService from '../../services/users';
 import UserForm from './createUsersForm';
-
-// TODO: add this somewhere where you are configuring env variables... constants?
-const COMPANY = 'JONS SHOP';
+import {APP} from '../../constants/constants';
+import appLogo from '../../images/pngtree-streamer-fly-wooly-bugger.png'
 
 const Users = () => {
   const [users, setUsers] = useState([]); // Default is an empty array
@@ -27,12 +26,14 @@ const Users = () => {
     <div className="create-user-page red-border">
       <div className="row-space-around-center">
         <div className="create-account-banner red-border">
-          {/* THIS IS JUST THE COMPANY NAME HERE THING... */}
           <div>
-            <h1>{COMPANY}</h1>
+            <div>
+              <img className="create-user-banner-logo" src={appLogo} alt={APP.NAME + " image"}></img>
+            </div>
+            <h1><b>{APP.NAME}</b></h1>
           </div>
           <div>
-            <h2>Create {COMPANY} Account</h2>
+            <h2>Create a "{APP.NAME}"" Account</h2>
           </div>
         </div>
 

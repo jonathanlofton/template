@@ -1,4 +1,4 @@
-const {HOST} = require('../constants/constants').ENV;
+const {HOST} = require('../constants/constants').APP;
 
 // TODO: abstract out the formatting needed to use fetch... so you can just do .post().get etc...
 const get = async () => {

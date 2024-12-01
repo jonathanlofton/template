@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import usersService from '../../services/users';
+import { useNavigate } from 'react-router-dom';
 
 function UserForm({ fetchUsers }) {
+  const navigate = useNavigate();
 
   // State for form inputs
   const [first_name, setFirstName] = useState('');
@@ -19,7 +21,7 @@ function UserForm({ fetchUsers }) {
       const user = await usersService.create(userData)
       if (user) {
         setMessage(`User created successfully: ${user.email}`);
-        await fetchUsers()
+        navigate('/users')
       } else {
         setMessage(`Error: ${user.error || 'User creation failed'}`);
       }

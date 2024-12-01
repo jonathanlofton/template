@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import usersService from '../../services/users';
 
 const UserList = () => {
+  const [users, setUsers] = useState([]); // Default is an empty array
 
   const fetchUsers = async () => {
     let users = await usersService.get()

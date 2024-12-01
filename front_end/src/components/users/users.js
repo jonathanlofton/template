@@ -22,11 +22,6 @@ const Users = () => {
   }
 
   useEffect(() => {fetchUsers()}, []);
-  
-  const deleteUser = async (userIdToDestroy) => {
-    await usersService.destroy(userIdToDestroy)
-    fetchUsers()
-  }
 
   return (
     <div >

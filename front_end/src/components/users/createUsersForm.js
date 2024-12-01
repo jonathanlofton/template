@@ -5,14 +5,12 @@ import { useNavigate } from 'react-router-dom';
 function UserForm({ fetchUsers }) {
   const navigate = useNavigate();
 
-  // State for form inputs
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
-    // Prevent page reload on form submission
     e.preventDefault(); 
 
     const userData = { first_name, last_name, email };
@@ -27,7 +25,7 @@ function UserForm({ fetchUsers }) {
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessage('Error: Could not create user');
+      setMessage(`Error: Could not create user | message: ${error.message}`);
     }
   };
 
@@ -69,7 +67,12 @@ function UserForm({ fetchUsers }) {
         </div>
         <button type="submit" className="btn btn-primary">Create User</button>
       </form>
-      {message && <p>{message}</p>}
+      {
+        message && 
+        <div class="alert alert-primary" role="alert">
+          <p>{message}</p>
+        </div>
+      }
     </div>
   );
 }

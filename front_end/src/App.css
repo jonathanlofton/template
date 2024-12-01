@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.yup {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  height: 7%;
+}
+
+.body {
+  height: 86%;
+}
+
+.footer {
+  height: 7%;
+}
+
+.row-space-around-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-form {
+  width: 30%;
+  height: 50%;
+  padding: 10px;
+  margin: 30px;
+  align-items: center;
+}
+
+.user-form-fields {
+  height: 300px;
+  width: 70%;
+  padding: 15px;
+}
+
+.create-account-banner {
+  width: 30%;
+  height: 50%;
+  padding: 10px;
+  margin: 30px;
+  align-items: center;
+}
+
+.form-field {
+  float: right;
+}
+
+.red-border {
+  border: red 1px solid;
+}

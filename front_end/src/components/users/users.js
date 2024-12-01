@@ -24,8 +24,7 @@ const Users = () => {
   useEffect(() => {fetchUsers()}, []);
 
   return (
-    <div >
-
+    <div className="create-user-page red-border">
       <div className="row-space-around-center">
         <div className="create-account-banner red-border">
           {/* THIS IS JUST THE COMPANY NAME HERE THING... */}
@@ -40,7 +39,6 @@ const Users = () => {
         {/* TODO: add some type of dropdown for user form... */}
         <UserForm fetchUsers={fetchUsers}/>
       </div>
-      
     </div>
   );
 }

@@ -6,6 +6,7 @@ const UserList = () => {
 
   const fetchUsers = async () => {
     let users = await usersService.get()
+    debugger;
     setUsers(users)
   }
 
@@ -17,16 +18,23 @@ const UserList = () => {
   }
 
   return (
-    <div>
+    <div className="users-list red-border">
         {users.length > 0 ? (
           users.map((user, index) => (
             <div key={index} className="user-card">
               <div>
                 {/* photo */}
               </div>
-              <div>name: {user.first_name} {user.last_name}</div> 
-              <div>email: {user.email}</div>
-              <button className="btn btn-primary" onClick={() => deleteUser(user.id)}>Delete User</button>
+              <div>
+                <b>name:</b> {user.first_name} {user.last_name}
+              </div>
+              <div>
+                <b>email:</b> {user.email}
+              </div>
+              <div>
+                <b>created at:</b> {new Date(user.createdAt).toLocaleString()}
+              </div>
+              <button className="btn btn-danger" onClick={() => deleteUser(user.id)}>Delete User</button>
             </div> 
           ))
         ) : (

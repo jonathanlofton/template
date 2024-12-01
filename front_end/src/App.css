@@ -49,7 +49,8 @@
   justify-content: space-evenly;
 }
 
-.yup {
+/* This is the styling for the main web page */
+.page {
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -111,11 +112,26 @@
   align-items: center;
 }
 
-.user-card {
-  width: 50%;
+.users-list {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-card {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 .align-items-center {
   align-items: center;
+  align-content: center;
+}
+
+.create-user-page {
+  height: 100%;
+  align-content: center;
 }

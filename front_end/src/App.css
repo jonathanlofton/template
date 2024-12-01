@@ -56,6 +56,11 @@
   height: 100vh;
 }
 
+/*
+  header - body - footer 
+  THESE SHOULD ADD UP TO 100% 
+*/
+
 .header {
   height: 7%;
 }
@@ -74,8 +79,18 @@
   align-items: center;
 }
 
+.form-field {
+  float: right;
+}
+
+.red-border {
+  border: red 1px solid;
+}
+
+/* USER */
+
 .user-form {
-  width: 30%;
+  width: 50%;
   height: 50%;
   padding: 10px;
   margin: 30px;
@@ -89,17 +104,18 @@
 }
 
 .create-account-banner {
-  width: 30%;
+  width: 50%;
   height: 50%;
   padding: 10px;
   margin: 30px;
   align-items: center;
 }
 
-.form-field {
-  float: right;
+.user-card {
+  width: 50%;
+  display: flex;
 }
 
-.red-border {
-  border: red 1px solid;
+.align-items-center {
+  align-items: center;
 }

@@ -5,14 +5,14 @@ const Main = () => {
   return (
     <div className="yup">
       <div className='header red-border'>
-        Hello this is the header
+        HEADER
       </div>
-      <div className='body red-border'>
-        HELLO THIS IS THE BODY
+      <div className='body align-items-center red-border'>
+        {/* TODO: determine routes to display pages... */}
         <Users/>
       </div>
       <div className='footer red-border'>
-        Hello this is the footer
+        FOOTER
       </div>
     </div>
   );

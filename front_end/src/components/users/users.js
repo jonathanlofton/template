@@ -45,30 +45,6 @@ const Users = () => {
         {/* TODO: add some type of dropdown for user form... */}
         <UserForm fetchUsers={fetchUsers}/>
       </div>
-
-      
-
-      {/* TODO: turn into its own component */}
-      <div>
-          {users.length > 0 ? (
-            users.map((user, index) => (
-              <div key={index}>
-                <div className="row">
-                  <div>
-                    {/* photo */}
-                  </div>
-                  <div className="column">
-                    <div>name: {user.first_name} {user.last_name}</div> 
-                    <div>email: {user.email}</div>
-                  </div>
-                  <button onClick={() => deleteUser(user.id)}></button>
-                </div>
-              </div> 
-            ))
-          ) : (
-            <p>No users available</p>
-          )}
-      </div> 
       
     </div>
   );

@@ -135,3 +135,12 @@
   height: 100%;
   align-content: center;
 }
+
+.create-user-banner-logo {
+  width: 40%;
+}
+
+.home-button-image {
+  width: 50px;
+  float: left;
+}

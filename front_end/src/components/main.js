@@ -3,6 +3,8 @@ import Users from './users/users';
 import UserList from './users/userList';
 import { Routes, Route } from "react-router";
 import { useNavigate } from 'react-router-dom';
+import {APP} from '../constants/constants';
+import appLogo from '../images/pngtree-streamer-fly-wooly-bugger.png'
 
 const Main = () => {
   const navigate = useNavigate();
@@ -11,7 +13,9 @@ const Main = () => {
     <div className="page">
       <div className='header red-border'>
         {/* TODO: turn into image in top left hand corner of header... */}
-        <button onClick={() => navigate('/')}>Home</button>
+        <p onClick={() => navigate('/')}>
+          <img className="home-button-image" src={appLogo} alt={APP.NAME + " image"}></img>
+        </p>
         HEADER
       </div>
       <div className='body red-border'>

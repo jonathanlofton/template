@@ -30,43 +30,42 @@ function UserForm({ fetchUsers }) {
   };
 
   return (
-    <div className="UserForm">
-      <h2>Create User</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            First Name:
-            <input
-              type="text"
-              value={first_name}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </label>
+    <div className="user-form column red-border">
+      <div>
+        <h2>Create User</h2>
+      </div>
+      <form onSubmit={handleSubmit} className="column user-form-fields">
+        <div className="form-field">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="First Name"
+            value={first_name}
+            onChange={(e) => setFirstName(e.target.value)}
+            required={true}
+          />
         </div>
         <div>
-          <label>
-            Last Name:
-            <input
-              type="text"
-              value={last_name}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last Name"
+            value={last_name}
+            onChange={(e) => setLastName(e.target.value)}
+            required={true}
+          />
         </div>
         <div>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required={true}
+          />
         </div>
-        <button type="submit">Create User</button>
+        <button type="submit" className="btn btn-primary">Create User</button>
       </form>
       {message && <p>{message}</p>}
     </div>

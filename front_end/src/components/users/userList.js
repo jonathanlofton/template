@@ -5,9 +5,9 @@ const UserList = () => {
   const [users, setUsers] = useState([]); // Default is an empty array
 
   const fetchUsers = async () => {
-    let users = await usersService.get()
+    // let users = await usersService.get()
     debugger;
-    setUsers(users)
+    // setUsers(users)
   }
 
   useEffect(() => {fetchUsers()}, []);

@@ -3,6 +3,7 @@ const
   router = express.Router();
   db  = require('../models/index');
 
+
 router.get('/users', async (req, res, next) => {
   try {
     console.log(`get | users`)

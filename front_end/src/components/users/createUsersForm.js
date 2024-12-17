@@ -29,6 +29,11 @@ function UserForm({ fetchUsers }) {
     }
   };
 
+  const handleGoogleLogin = () => {
+    // Redirect to backend Google auth route
+    window.location.href = 'http://localhost:3000/auth/google';
+  };
+
   return (
     <div className="user-form column red-border">
       <div>
@@ -66,6 +71,7 @@ function UserForm({ fetchUsers }) {
           />
         </div>
         <button type="submit" className="btn btn-primary">Create User</button>
+        <button type="submit" onClick={handleGoogleLogin} className="btn btn-primary">Sign in with Google</button>
       </form>
       {
         message && 

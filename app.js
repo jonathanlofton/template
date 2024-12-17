@@ -54,7 +54,7 @@ const
     function(accessToken, refreshToken, profile, done) {
       // Here you would typically find or create a user in your database
       // TODO: find or create user and log them in...
-      usersController.findOrCreate(profile).then( function (err, user) {
+      usersController.findOrCreate(profile).then(function (user) {
         return done(null, user);
       })
     }
@@ -78,13 +78,13 @@ const
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
       // Successful authentication, redirect home.
-      res.redirect('http://localhost:3001');
+      res.redirect('http://localhost:3001/users');
     }
   );
 
   app.get('/auth/logout', (req, res) => {
     req.logout();
-    res.redirect('http://localhost:3001');
+    res.redirect('http://localhost:3001/login');
   });
 
   // Endpoint to get current user

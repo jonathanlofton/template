@@ -21,7 +21,7 @@ const Main = () => {
       <div className='body red-border'>
         {/* TODO: Move routes to a seperate element... */}
         <Routes>
-          <Route path="/" element={<Users/>}></Route>
+          <Route path="/login" element={<Users/>}></Route>
           <Route path="/users" element={<UserList/>}></Route>
         </Routes>
       </div>

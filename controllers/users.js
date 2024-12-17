@@ -8,11 +8,13 @@ const
 module.exports.findOrCreate = async (profile) => {
   try {
     console.log(`get | users`)
-    let user = await db.User.findAll({where: {
+    
+    let users = await db.User.findAll({where: {
       email: {[Op.in]: profile.emails.map(u => u.value)}
     }})
 
-    if (!user.length) {
+    let user;
+    if (!users.length) {
       user = await db.User.create({
         first_name: profile.name.givenName,
         last_name: profile.name.familyName,
@@ -20,7 +22,7 @@ module.exports.findOrCreate = async (profile) => {
       })
     }
 
-    return user;
+    return users[0] || user;
   } catch(err) {
     console.error(`findOrCreate | users | Error: ${err.message}`)
   }

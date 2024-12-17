@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Ignore image files
+*.jpg
+*.png
+*.gif
+*.svg

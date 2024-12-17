@@ -38,7 +38,7 @@ const Users = () => {
         </div>
 
         {/* TODO: add some type of dropdown for user form... */}
-        <UserForm fetchUsers={fetchUsers}/>
+        <UserForm />
       </div>
     </div>
   );

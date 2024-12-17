@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import usersService from '../../services/users';
 import { useNavigate } from 'react-router-dom';
 
-function UserForm({ fetchUsers }) {
+function UserForm() {
   const navigate = useNavigate();
 
   const [first_name, setFirstName] = useState('');

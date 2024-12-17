@@ -16,8 +16,8 @@ const Users = () => {
   // }
 
   const fetchUsers = async () => {
-    // let users = await usersService.get()
-    // setUsers(users)
+    let users = await usersService.get()
+    setUsers(users)
   }
 
   useEffect(() => {fetchUsers()}, []);

@@ -15,7 +15,7 @@ router.get('/users', isAuthenticated, async (req, res, next) => {
   }
 });
 
-router.post('/users', async (req, res, next) => {
+router.post('/users', isAuthenticated, async (req, res, next) => {
   try {
     let {body} = req;
     console.log(`post | users | creating new user... ${body.email}`)
@@ -27,7 +27,7 @@ router.post('/users', async (req, res, next) => {
   }
 });
 
-router.delete('/user/:id', async (req, res, next) => {
+router.delete('/user/:id', isAuthenticated, async (req, res, next) => {
   try {
     let {params} = req;
     let id = params.id;

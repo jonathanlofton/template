@@ -4,24 +4,22 @@ export const getAllUsers = async () => {
   try {
     return await get(`/api/users`);
   } catch (err) {
-    throw new Error("Something went wrong fetching users...");
+    console.log("Something went wrong fetching users...");
   }
 }
 
 export const createUser = async (data) => {
   try {
-    let res = await post(`/api/users`, data);
-    return res.user;
+    return await post(`/api/users`, data);
   } catch (err) {
-    throw new Error("Something went wrong creating user...");
+    console.log("Something went wrong creating user...");
   }
 }
 
 export const removeUser = async (id) => {
   try {
-    let res = await destroy(`/api/user/${id}`);
-    return res.user;
+    return await destroy(`/api/user/${id}`);
   } catch (err) {
-    throw new Error("Something went wrong destroying user...");
+    console.log("Something went wrong destroying user...");
   }
 }

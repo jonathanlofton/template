@@ -21,11 +21,13 @@ const UserList = () => {
   }, [navigate]);
   
   const deleteUser = async (userIdToDestroy) => {
-    await removeUser(userIdToDestroy)
-    debugger;
-    let newUsers = users.filter((user) => user.id !== userIdToDestroy)
-    debugger;
-    setUsers(newUsers);
+    let res = await removeUser(userIdToDestroy)
+    if (res.redirectTo) { 
+      navigate(res.redirectTo)
+    } else {
+      let newUsers = users.filter((user) => user.id !== userIdToDestroy)
+      setUsers(newUsers);
+    }
   }
 
   return (

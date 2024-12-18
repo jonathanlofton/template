@@ -16,12 +16,15 @@ function UserForm() {
     const userData = { first_name, last_name, email };
 
     try {
-      const user = await createUser(userData)
-      if (user) {
-        setMessage(`User created successfully: ${user.email}`);
+      const res = await createUser(userData)
+      if (res.user) {
+        setMessage(`User created successfully: ${res.user.email}`);
         navigate('/users')
       } else {
-        setMessage(`Error: ${user.error || 'User creation failed'}`);
+        setMessage(`Error: ${res.message || 'User creation failed'}`);
+        if (res.redirectTo) {
+          navigate(res.redirectTo)
+        }
       }
     } catch (error) {
       console.error('Error:', error);

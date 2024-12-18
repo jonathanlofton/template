@@ -62,11 +62,13 @@ const
 
   // Serialization for sessions
   passport.serializeUser((user, done) => {
-    done(null, user);
+    done(null, user.id);
   });
 
-  passport.deserializeUser((user, done) => {
-    done(null, user);
+  passport.deserializeUser((userId, done) => {
+    usersController.findById(userId).then(user => {
+      done(null, user);
+    })
   });
 
   // Authentication Routes
@@ -75,7 +77,7 @@ const
   );
 
   app.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/login' }),
+    passport.authenticate('google', { failureRedirect: 'http://localhost:3001/login' }),
     (req, res) => {
       // Successful authentication, redirect home.
       res.redirect('http://localhost:3001/users');

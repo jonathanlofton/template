@@ -5,22 +5,6 @@ import {APP} from '../../constants/constants';
 import appLogo from '../../images/pngtree-streamer-fly-wooly-bugger.png'
 
 const Users = () => {
-  const [users, setUsers] = useState([]); // Default is an empty array
-
-  // TODO: do I want to use classes and 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     items: [1, 2, 3, 4, 5],
-  //   };
-  // }
-
-  const fetchUsers = async () => {
-    let users = await usersService.get()
-    setUsers(users)
-  }
-
-  useEffect(() => {fetchUsers()}, []);
 
   return (
     <div className="create-user-page red-border">

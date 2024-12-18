@@ -18,11 +18,21 @@ module.exports.findOrCreate = async (profile) => {
       user = await db.User.create({
         first_name: profile.name.givenName,
         last_name: profile.name.familyName,
-        email: profile.emails[0].value
+        email: profile.emails[0].value,
+        google_id: profile.id || null
       })
     }
 
     return users[0] || user;
+  } catch(err) {
+    console.error(`findOrCreate | users | Error: ${err.message}`)
+  }
+}
+
+
+module.exports.findById = async (userId) => {
+  try {
+    return await db.User.findByPk(userId)
   } catch(err) {
     console.error(`findOrCreate | users | Error: ${err.message}`)
   }

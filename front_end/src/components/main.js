@@ -13,7 +13,7 @@ const Main = () => {
     <div className="page">
       <div className='header red-border'>
         {/* TODO: turn into image in top left hand corner of header... */}
-        <p onClick={() => navigate('/')}>
+        <p onClick={() => navigate('/login')}>
           <img className="home-button-image" src={appLogo} alt={APP.NAME + " image"}></img>
         </p>
         HEADER

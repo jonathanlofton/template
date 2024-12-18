@@ -1,10 +1,10 @@
 const 
   express = require('express'),
-  router = express.Router();
+  router = express.Router(),
+  { isAuthentiated } = require('../routes/authMiddleware'),
   db  = require('../models/index');
 
-
-router.get('/users', async (req, res, next) => {
+router.get('/users', isAuthentiated, async (req, res, next) => {
   try {
     console.log(`get | users`)
     let users = await db.User.findAll()

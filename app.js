@@ -19,7 +19,8 @@ const
   app.use(cors({
     origin: ['http://localhost:3001', 'http://localhost:3000'],  // Only allow this origin
     methods: ['GET', 'POST', 'DELETE', 'PATCH'],         // Allow specific HTTP methods
-    allowedHeaders: ['Content-Type']   // Allow specific headers
+    allowedHeaders: ['Content-Type'],
+    credentials: true
   }))
 
   // have the secret be in the .env file

@@ -1,4 +1,4 @@
-module.exports.isAuthentiated = async (req, res, next) => {
+module.exports.isAuthenticated = async (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
   } else {

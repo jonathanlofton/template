@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import usersService from '../../services/users';
+import React, { } from 'react';
 import UserForm from './createUsersForm';
 import {APP} from '../../constants/constants';
 import appLogo from '../../images/pngtree-streamer-fly-wooly-bugger.png'

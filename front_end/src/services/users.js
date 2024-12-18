@@ -1,50 +1,27 @@
-const {HOST} = require('../constants/constants').APP;
+const {get, post, destroy} = require('./fetch');
 
-// TODO: abstract out the formatting needed to use fetch... so you can just do .post().get etc...
-const get = async () => {
+export const getAllUsers = async () => {
   try {
-    let res = await fetch(`${HOST}/api/users`, {credentials: 'include'})
-    res = await res.json()
-    return res.users;
-  } catch(err) {
-    debugger;
-    throw new Error("Something went wrong fetching users...")
+    return await get(`/api/users`);
+  } catch (err) {
+    throw new Error("Something went wrong fetching users...");
   }
 }
-module.exports.get = get;
 
-
-const create = async (data) => {
+export const createUser = async (data) => {
   try {
-    let res = await fetch(`${HOST}/api/users`, {
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-      credentials: 'include'
-    });
-    res = await res.json()
+    let res = await post(`/api/users`, data);
     return res.user;
-  } catch(err) {
-    throw new Error("Something went wrong creating user...")
+  } catch (err) {
+    throw new Error("Something went wrong creating user...");
   }
 }
-module.exports.create = create;
 
-const destroy = async (id) => {
+export const removeUser = async (id) => {
   try {
-    let res = await fetch(`${HOST}/api/user/${id}`, {
-      method: 'DELETE', 
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    });
-    res = await res.json()
+    let res = await destroy(`/api/user/${id}`);
     return res.user;
-  } catch(err) {
-    throw new Error("Something went wrong destroying user...")
+  } catch (err) {
+    throw new Error("Something went wrong destroying user...");
   }
 }
-module.exports.destroy = destroy;

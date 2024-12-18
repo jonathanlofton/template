@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import usersService from '../../services/users';
+import { useNavigate } from 'react-router-dom';
+import {getAllUsers, removeUser} from '../../services/users';
 
 const UserList = () => {
   const [users, setUsers] = useState([]); // Default is an empty array
+  const navigate = useNavigate();
 
-  const fetchUsers = async () => {
-    let users = await usersService.get()
-    setUsers(users)
-  }
-
-  useEffect(() => {fetchUsers()}, []);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      let res = await getAllUsers()
+      debugger;
+      if (res.redirectTo) {
+        navigate(res.redirectTo)
+      } else {
+        res.users && res.users.length ? setUsers(res.users) : setUsers([])
+      }
+    }
+    
+    fetchUsers()
+  }, [navigate]);
   
   const deleteUser = async (userIdToDestroy) => {
-    await usersService.destroy(userIdToDestroy)
-    fetchUsers()
+    await removeUser(userIdToDestroy)
+    debugger;
+    let newUsers = users.filter((user) => user.id !== userIdToDestroy)
+    debugger;
+    setUsers(newUsers);
   }
 
   return (

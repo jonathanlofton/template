@@ -77,7 +77,7 @@ const
     (req, res) => {
       // Successful authentication, redirect home.
       // TODO: change this to be '/' home page once you have that setup...
-      res.redirect('http://localhost:3001/users');
+      res.redirect('http://localhost:3001/');
     }
   );
 
@@ -88,11 +88,6 @@ const
 
   app.get('/current_user', (req, res) => {
     res.json(req.user || null);
-  });
-
-  app.post('/api/logout', (req, res) => {
-    req.logout();
-    res.json({ message: 'Logged out successfully' });
   });
 
   app.use('/api', userRoutes)

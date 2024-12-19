@@ -13,7 +13,6 @@ const Main = () => {
   return (
     <div className="page">
       <div className='header red-border'>
-        {/* TODO: turn into image in top left hand corner of header... */}
         <img onClick={() => navigate('/login')} className="home-button-image" src={appLogo} alt={APP.NAME + " image"}></img>
         HEADER
         {/* TODO: make logout only available if their is an active session */}
@@ -22,7 +21,7 @@ const Main = () => {
         </p>
       </div>
       <div className='body red-border'>
-        {/* TODO: Move routes to a seperate element... */}
+        {/* TODO: Move routes to a seperate component... */}
         <Routes>
           <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/users" element={<UserList/>}></Route>

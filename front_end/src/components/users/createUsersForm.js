@@ -19,7 +19,7 @@ function UserForm() {
       const res = await createUser(userData)
       if (res.user) {
         setMessage(`User created successfully: ${res.user.email}`);
-        navigate('/users')
+        navigate('/')
       } else {
         setMessage(`Error: ${res.message || 'User creation failed'}`);
         if (res.redirectTo) {

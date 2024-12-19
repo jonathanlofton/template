@@ -32,3 +32,11 @@ export const logout = async () => {
     console.error('Error logging out:', err);
   }
 };
+
+export const getSession = async () => {
+  try {
+    return await get('/current_user');
+  } catch (err) {
+    console.error('Error logging out:', err);
+  }
+};

@@ -17,13 +17,12 @@ const
   // enable cors for all routes
   // cors is responsible for what host origin is allowed to make requests
   app.use(cors({
-    origin: ['http://localhost:3001', 'http://localhost:3000'],  // Only allow this origin
-    methods: ['GET', 'POST', 'DELETE', 'PATCH'],         // Allow specific HTTP methods
+    origin: ['http://localhost:3001', process.env.HOST],  
+    methods: ['GET', 'POST', 'DELETE', 'PATCH'],  
     allowedHeaders: ['Content-Type'],
     credentials: true
   }))
 
-  // have the secret be in the .env file
   app.use(session({
     secret: process.env.SESSION_SECRET || 'fallback_secret_key',
     resave: false,
@@ -45,16 +44,12 @@ const
     console.log("Error syncing database:", err);
   });
 
-  // Passport Google Strategy Configuration
   passport.use(new GoogleStrategy({
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/callback",
-      // passReqToCallback: true
+      callbackURL: `${process.env.HOST}/auth/google/callback`,
     },
     function(accessToken, refreshToken, profile, done) {
-      // Here you would typically find or create a user in your database
-      // TODO: find or create user and log them in...
       usersController.findOrCreate(profile).then(function (user) {
         return done(null, user);
       })
@@ -81,6 +76,7 @@ const
     passport.authenticate('google', { failureRedirect: 'http://localhost:3001/login' }),
     (req, res) => {
       // Successful authentication, redirect home.
+      // TODO: change this to be '/' home page once you have that setup...
       res.redirect('http://localhost:3001/users');
     }
   );
@@ -90,9 +86,13 @@ const
     res.redirect('http://localhost:3001/login');
   });
 
-  // Endpoint to get current user
   app.get('/current_user', (req, res) => {
     res.json(req.user || null);
+  });
+
+  app.post('/api/logout', (req, res) => {
+    req.logout();
+    res.json({ message: 'Logged out successfully' });
   });
 
   app.use('/api', userRoutes)

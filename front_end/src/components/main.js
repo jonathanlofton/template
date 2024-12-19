@@ -1,6 +1,7 @@
 import React from 'react';
-import Users from './users/users';
+import LoginPage from './loginPage';
 import UserList from './users/userList';
+import HomePage from './home';
 import { Routes, Route } from "react-router";
 import { useNavigate } from 'react-router-dom';
 import {APP} from '../constants/constants';
@@ -13,16 +14,19 @@ const Main = () => {
     <div className="page">
       <div className='header red-border'>
         {/* TODO: turn into image in top left hand corner of header... */}
-        <p onClick={() => navigate('/login')}>
-          <img className="home-button-image" src={appLogo} alt={APP.NAME + " image"}></img>
-        </p>
+        <img onClick={() => navigate('/login')} className="home-button-image" src={appLogo} alt={APP.NAME + " image"}></img>
         HEADER
+        {/* TODO: make logout only available if their is an active session */}
+        <p className="float-right margin-15px">
+          Logout
+        </p>
       </div>
       <div className='body red-border'>
         {/* TODO: Move routes to a seperate element... */}
         <Routes>
-          <Route path="/login" element={<Users/>}></Route>
+          <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/users" element={<UserList/>}></Route>
+          <Route path="/" element={<HomePage/>}></Route>
         </Routes>
       </div>
       <div className='footer red-border'>

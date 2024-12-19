@@ -144,3 +144,11 @@
   width: 50px;
   float: left;
 }
+
+.float-right {
+  float: right;
+}
+
+.margin-15px {
+  margin: 15px;
+}

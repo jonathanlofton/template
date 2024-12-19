@@ -1,9 +1,9 @@
 import React, { } from 'react';
-import UserForm from './createUsersForm';
-import {APP} from '../../constants/constants';
-import appLogo from '../../images/app-logo.png'
+import UserForm from './users/createUsersForm';
+import {APP} from '../constants/constants';
+import appLogo from '../images/app-logo.png'
 
-const Users = () => {
+const LoginPage = () => {
 
   return (
     <div className="create-user-page red-border">
@@ -27,4 +27,4 @@ const Users = () => {
   );
 }
 
-export default Users;
+export default LoginPage;

@@ -23,3 +23,12 @@ export const removeUser = async (id) => {
     console.log("Something went wrong destroying user...");
   }
 }
+
+export const logout = async () => {
+  try {
+    return await post('/api/logout');
+    // setLoggedIn(false); // Update UI state
+  } catch (err) {
+    console.error('Error logging out:', err);
+  }
+};

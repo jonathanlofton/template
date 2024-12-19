@@ -9,7 +9,6 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       let res = await getAllUsers()
-      debugger;
       if (res.redirectTo) {
         navigate(res.redirectTo)
       } else {

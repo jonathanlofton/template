@@ -4,7 +4,7 @@ import UserList from './users/userList';
 import { Routes, Route } from "react-router";
 import { useNavigate } from 'react-router-dom';
 import {APP} from '../constants/constants';
-import appLogo from '../images/pngtree-streamer-fly-wooly-bugger.png'
+import appLogo from '../images/app-logo.png'
 
 const Main = () => {
   const navigate = useNavigate();

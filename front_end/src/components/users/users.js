@@ -1,7 +1,7 @@
 import React, { } from 'react';
 import UserForm from './createUsersForm';
 import {APP} from '../../constants/constants';
-import appLogo from '../../images/pngtree-streamer-fly-wooly-bugger.png'
+import appLogo from '../../images/app-logo.png'
 
 const Users = () => {
 
